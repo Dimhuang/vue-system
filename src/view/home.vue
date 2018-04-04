@@ -30,11 +30,14 @@
         </Menu>
       </Sider>
       <Layout :style="{marginLeft: '200px'}">
-        <!--<Header :style="{background: '#fff', boxShadow: '0 2px 3px 2px rgba(0,0,0,.1)'}"></Header>-->
+        <Header :style="{background: '#fff', boxShadow: '0 2px 3px 2px rgba(0,0,0,.1)'}"></Header>
+        <div class="m-nav-item-box">
+          <Tag closable color="blue" v-for="(n,index) in labelLtem" :key="index">{{n.name}}</Tag>
+        </div>
         <Content :style="{padding: '0 16px 16px'}">
           <Breadcrumb :style="{margin: '16px 0'}"> </Breadcrumb>
           <Card>
-            <div :style="{height:contentHeight + 'px'}">
+            <div class="m-index-content" :style="{height:contentHeight + 'px'}">
               <router-view/>
             </div>
           </Card>
@@ -44,12 +47,14 @@
 </template>
 
 <script>
+
   export default {
     name: 'home',
     data () {
       return {
         navName:'mainIndex',
-        contentHeight:'600'
+        contentHeight:'',
+        labelLtem:[{'name':'main首页','paths':'mainIndex'}]
       }
     },
     created() {
@@ -65,8 +70,7 @@
         this.navName = name
       },
       getHeight(){
-        this.contentHeight = document.body.clientHeight - 32
-
+        this.contentHeight = document.body.clientHeight - 175
       }
     }
   }
@@ -85,4 +89,13 @@
     background: #fff;
     box-shadow: 0 1px 1px rgba(0,0,0,.1);
   }
+  .m-index-content{
+    overflow: hidden;
+    overflow-y: auto;
+  }
+  .m-nav-item-box{
+    padding:8px;
+    background: #dfdfdf;
+  }
+
 </style>

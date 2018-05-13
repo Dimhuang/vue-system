@@ -1,0 +1,14 @@
+{
+  "mainList":{
+    "status":"0",
+    "msg":"",
+    "result":[
+      {
+        "name":"Dim",
+        "age":"23",
+        "sex":"male",
+        "jos":"engineer"
+      }
+    ]
+  }
+}

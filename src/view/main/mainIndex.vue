@@ -1,9 +1,6 @@
 <template>
   <div id="mainIndex">
-    <Button type="info" @click.native="getAjax">Get请求</Button>
-    <Button type="success">Post请求</Button>
-    <br>
-    <span>{{msg}}</span>
+    <Table :columns="columns" :data="userList" @on-row-click="getRowIndex"></Table>
   </div>
 </template>
 
@@ -12,23 +9,37 @@
     name: 'mainIndex',
     data (){
       return {
-        msg:''
+        columns: [
+          {
+            title: 'Name',
+            key: 'name'
+          },
+          {
+            title: 'Age',
+            key: 'age'
+          },
+          {
+            title: 'Address',
+            key: 'address'
+          }
+        ],
+        userList:[]
       }
     },
+    mounted (){
+      this.getAjax()
+    },
     methods:{
-        getAjax(){
-          this.$http.get('http://120.76.42.106/yyjkApi/api/user/Login',{
-            params:{
-              loginname:'18666855295',
-              loginpwd:'123456'
-            },
-            headers:{
-
-            }
-          }).then(res=>{
-            this.msg = res.data
-          });
-        }
+      getAjax(){
+        this.$axios.get('/api/mainIndex/userList').then(res=>{
+            this.userList = res.data.data.result
+        })
+      },
+      getRowIndex(data,index){
+        console.log(data)
+        console.log(index)
+        this.$Notice.open({title: '第'+(index+1)+'条数据', desc: JSON.stringify(data) });
+      }
     }
   }
 </script>

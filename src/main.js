@@ -13,8 +13,8 @@ Vue.use(VueResource);
 Vue.use(iView);
 
 Vue.config.productionTip = false
-
 Vue.prototype.$axios = axios
+
 
 
 /* eslint-disable no-new */

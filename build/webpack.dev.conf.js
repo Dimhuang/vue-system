@@ -9,10 +9,10 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
+
 const express = require('express')
 const app = express()
 var appData = require('../mock/data.json')
-var mainList = appData.mainList
 var apiRoutes = express.Router()
 app.use('/api', apiRoutes)
 
@@ -51,11 +51,18 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       poll: config.dev.poll,
     },
     before(app) {
+      app.get('/api/mainIndex/userList', (req, res) => {
+        res.json({
+          // 这里是你的json内容
+          errno: 0,
+          data: appData.mainIndex.userList
+        })
+      }),
       app.get('/api/mainList', (req, res) => {
         res.json({
           // 这里是你的json内容
           errno: 0,
-          data: mainList
+          data: appData.mainList
         })
       })
     }

@@ -10,3 +10,7 @@ const RouterConfig = {
 
 
 export const router = new Router(RouterConfig)
+router.beforeEach((to, from, next)=>{
+  console.log(to.matched)
+  next()
+})

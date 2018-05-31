@@ -11,16 +11,24 @@
       return {
         columns: [
           {
-            title: 'Name',
-            key: 'name'
+            title: 'productId',
+            key: 'productId'
           },
           {
-            title: 'Age',
-            key: 'age'
+            title: 'productName',
+            key: 'productName'
           },
           {
-            title: 'Address',
-            key: 'address'
+            title: 'productUrl',
+            key:'productUrl'
+          },
+          {
+            title: 'salePrice',
+            key: 'salePrice'
+          },
+          {
+            title: 'productImage',
+            key: 'productImage'
           }
         ],
         userList:[]
@@ -31,8 +39,8 @@
     },
     methods:{
       getAjax(){
-        this.$axios.get('/api/mainIndex/userList').then(res=>{
-            this.userList = res.data.data.result
+        this.$axios.get('/goods').then(res=>{
+            this.userList = res.data.result.list
         })
       },
       getRowIndex(data,index){

@@ -17,9 +17,9 @@
     },
     methods:{
       getAjax(){
-        this.$axios.get('/api/mainList').then(res=>{
+       /* this.$axios.get('/api/mainList').then(res=>{
           this.msg = res.data.data.result
-        })
+        })*/
       }
     }
   }

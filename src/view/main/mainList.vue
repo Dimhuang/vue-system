@@ -1,9 +1,6 @@
 <template>
   <div id="mainList">
-    <Button type="info" @click.native="getAjax">Get请求</Button>
-    <Button type="success">Post请求</Button>
-    <br>
-    <span>{{msg}}</span>
+    <span>{{userList}}</span>
   </div>
 </template>
 
@@ -12,14 +9,17 @@
     name: 'mainList',
     data(){
       return{
-        msg:''
+        userList:''
       }
     },
+    mounted (){
+      this.getList()
+    },
     methods:{
-      getAjax(){
-       /* this.$axios.get('/api/mainList').then(res=>{
-          this.msg = res.data.data.result
-        })*/
+      getList(){
+        this.$axios.get('/users').then(res=>{
+          this.userList = res.data.result.list
+        })
       }
     }
   }

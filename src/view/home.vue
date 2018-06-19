@@ -7,33 +7,16 @@
               <Icon type="ios-navigate"></Icon>
               Item 1
             </template>
-            <MenuItem name="mainIndex" @click.native="getPage('mainIndex')">main首页</MenuItem>
-            <MenuItem name="mainList" @click.native="getPage('mainList')">main列表页</MenuItem>
-            <MenuItem name="1-3">Option 3</MenuItem>
-          </Submenu>
-          <Submenu name="2">
-            <template slot="title">
-              <Icon type="ios-keypad"></Icon>
-              Item 2
-            </template>
-            <MenuItem name="2-1">Option 1</MenuItem>
-            <MenuItem name="2-2">Option 2</MenuItem>
-          </Submenu>
-          <Submenu name="3">
-            <template slot="title">
-              <Icon type="ios-analytics"></Icon>
-              Item 3
-            </template>
-            <MenuItem name="3-1">Option 1</MenuItem>
-            <MenuItem name="3-2">Option 2</MenuItem>
+            <MenuItem name="mainIndex" @click.native="getPage('mainIndex')">商品页</MenuItem>
+            <MenuItem name="mainList" @click.native="getPage('mainList')">购物车</MenuItem>
           </Submenu>
         </Menu>
       </Sider>
       <Layout :style="{marginLeft: '200px'}">
         <Header :style="{background: '#fff', boxShadow: '0 2px 3px 2px rgba(0,0,0,.1)'}"></Header>
-        <div class="m-nav-item-box">
-          <Tag closable color="blue" v-for="(n,index) in labelLtem" :key="index">{{n.name}}</Tag>
-        </div>
+        <!--<div class="m-nav-item-box">-->
+          <!--<Tag closable color="blue" v-for="(n,index) in labelLtem" :key="index">{{n.name}}</Tag>-->
+        <!--</div>-->
         <Content :style="{padding: '0 16px 16px'}">
           <Breadcrumb :style="{margin: '16px 0'}"> </Breadcrumb>
           <Card>
@@ -70,7 +53,7 @@
         this.navName = name
       },
       getHeight(){
-        this.contentHeight = document.body.clientHeight - 175
+        this.contentHeight = document.body.clientHeight - 133
       }
     }
   }

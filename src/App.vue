@@ -25,7 +25,9 @@ export default {
     height: 100%;
     overflow: hidden;
   }
-
+li{
+  list-style: none;
+}
 ::-webkit-scrollbar
 {
   width: 10px;
